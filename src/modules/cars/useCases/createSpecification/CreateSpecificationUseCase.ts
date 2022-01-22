@@ -1,4 +1,4 @@
-import { ISpecificationRepository } from "../repositories/ISpecificationRepository";
+import { ISpecificationRepository } from "../../repositories/ISpecificationRepository";
 
 /**
  * O SERVICE NUNCA DEVE CONHECER A BASE DADOS
@@ -8,7 +8,7 @@ interface IRequest {
     description: string;
 }
 
-class CreateSpecificationService {
+class CreateSpecificationUseCase {
     constructor(private SpecificationRepository: ISpecificationRepository) {}
 
     execute({ name, description }: IRequest) {
@@ -23,4 +23,4 @@ class CreateSpecificationService {
     }
 }
 
-export { CreateSpecificationService };
+export { CreateSpecificationUseCase };
