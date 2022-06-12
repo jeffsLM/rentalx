@@ -14,7 +14,7 @@ export async function ensureAuthenticated(
     next: NextFunction
 ) {
     const authHeader = request.headers.authorization;
-
+    console.log(authHeader);
     if (!authHeader) {
         throw new AppError("Token missing", 401);
     }
@@ -33,6 +33,10 @@ export async function ensureAuthenticated(
         if (!user) {
             throw new AppError("User does not exists!", 401);
         }
+
+        request.user = {
+            id: user_id,
+        };
 
         next();
     } catch {
